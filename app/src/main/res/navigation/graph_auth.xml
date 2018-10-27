@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/graph_auth"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.memebattle.memebattle.features.auth.fragment.sign_in.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.memebattle.memebattle.features.auth.fragment.sign_up.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_mainFlowFragment2"
+            app:clearTask="true"
+            app:destination="@+id/mainFlowFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFlowFragment2"
+        android:name="com.memebattle.memebattle.features.main.MainFlowFragment"
+        android:label="MainFlowFragment" />
+</navigation>
