@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProviders
 import com.memebattle.memebattle.R
 import com.memebattle.memebattle.core.presentation.BaseFragment
 import kotlinx.android.synthetic.main.fragment_sign_up.view.*

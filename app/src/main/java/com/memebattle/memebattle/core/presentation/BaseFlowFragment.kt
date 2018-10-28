@@ -1,5 +1,6 @@
 package com.memebattle.memebattle.core.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +18,6 @@ abstract class BaseFlowFragment: Fragment() {
     abstract fun setParentHost(): Int
     abstract fun setChildHost(): Int
 
-    /*override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parentNavController = Navigation.findNavController(activity!!, setParentHost())
-        childNavController = Navigation.findNavController(activity!!, setChildHost())
-    }
-*/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         parentNavController = Navigation.findNavController(activity!!, setParentHost())
