@@ -12,6 +12,8 @@ import com.memebattle.memebattle.R
 
 abstract class BaseFlowFragment: Fragment() {
 
+    val TAG = "code"
+
     lateinit var parentNavController: NavController
     lateinit var childNavController: NavController
 

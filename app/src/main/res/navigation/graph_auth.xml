@@ -10,6 +10,10 @@
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_mainFlowFragment2"
+            app:clearTask="true"
+            app:destination="@+id/mainFlowFragment2" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"

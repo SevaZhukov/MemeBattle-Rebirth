@@ -1,6 +1,7 @@
 package com.memebattle.memebattle.core.di.core
 
 import com.memebattle.memebattle.core.di.sub.auth.AuthComponent
+import com.memebattle.memebattle.features.auth.fragment.sign_in.SignInViewModel
 import com.memebattle.newlegalclinic.core.di.core.module.AppModule
 import com.memebattle.newlegalclinic.core.di.core.module.RetrofitModule
 import com.memebattle.newlegalclinic.core.di.core.module.SharedPreferencesModule

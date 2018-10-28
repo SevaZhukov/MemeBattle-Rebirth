@@ -14,4 +14,10 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/graph_auth" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

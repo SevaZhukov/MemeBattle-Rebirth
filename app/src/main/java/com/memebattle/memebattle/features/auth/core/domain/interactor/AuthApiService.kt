@@ -12,7 +12,7 @@ class AuthApiService(var api: ApiAuth) {
     fun signIn(name: String, callback: BaseCallback<UserRes>) {
         api.signIn(UserReq(name)).enqueue(object : Callback<UserRes> {
             override fun onResponse(call: Call<UserRes>, response: Response<UserRes>) {
-                callback.onSuccess(response.body()!!)
+                callback.onSuccess(response.body())
             }
 
             override fun onFailure(call: Call<UserRes>, t: Throwable) {
@@ -21,8 +21,8 @@ class AuthApiService(var api: ApiAuth) {
         })
     }
 
-    fun signUp(callback: BaseCallback<UserRes>) {
-        api.signUp(UserReq("")).enqueue(object : Callback<UserRes> {
+    fun signUp(name: String, callback: BaseCallback<UserRes>) {
+        api.signUp(UserReq(name)).enqueue(object : Callback<UserRes> {
             override fun onFailure(call: Call<UserRes>, t: Throwable) {
                 callback.onError(t)
             }
