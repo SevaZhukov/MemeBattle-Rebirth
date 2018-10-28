@@ -20,21 +20,25 @@ class SignInFragment : BaseFragment() {
         return R.id.flow_host_auth
     }
 
+    override fun setFlowHost(): Int {
+        return R.id.nav_host
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_sign_in, container, false)
         viewModel = ViewModelProviders.of(this).get(SignInViewModel::class.java)
         viewModel.user.observe(this, Observer {
             Log.i(TAG, "user observe $it")
-            navController.navigate(R.id.action_signInFragment_to_mainFlowFragment2)
+            flowNavController.navigate(R.id.action_authFlowFragment_to_mainFlowFragment)
         })
         viewModel.error.observe(this, Observer {
             Log.i(TAG, "error observe $it")
             showSnack(it)
         })
         v.gotoSignUpButton.setOnClickListener {
-            //navController.navigate(R.id.action_signInFragment_to_signUpFragment)
-            viewModel.getId()
+            navController.navigate(R.id.action_signInFragment_to_signUpFragment)
+            //viewModel.getId()
         }
         v.signInButton.setOnClickListener {
             viewModel.signIn("")

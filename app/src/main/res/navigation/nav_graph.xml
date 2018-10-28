@@ -15,6 +15,7 @@
         tools:layout="@layout/flow_fragment_auth">
         <action
             android:id="@+id/action_authFlowFragment_to_mainFlowFragment"
+            app:clearTask="true"
             app:destination="@id/mainFlowFragment" />
     </fragment>
 </navigation>

@@ -20,6 +20,10 @@ class SignUpFragment : BaseFragment() {
         return R.id.flow_host_auth
     }
 
+    override fun setFlowHost(): Int {
+        return R.id.nav_host
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_sign_up, container, false)
@@ -29,7 +33,7 @@ class SignUpFragment : BaseFragment() {
             navController.popBackStack()
         }
         v.mainButton.setOnClickListener {
-            navController.navigate(R.id.action_signUpFragment_to_mainFlowFragment2)
+            flowNavController.navigate(R.id.action_authFlowFragment_to_mainFlowFragment)
         }
         return v
     }

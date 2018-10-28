@@ -5,18 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.memebattle.memebattle.R
-import com.memebattle.memebattle.core.presentation.BaseFlowFragment
+import com.memebattle.memebattle.core.presentation.BaseFragment
 import kotlinx.android.synthetic.main.flow_fragment_main.view.*
 
-class MainFlowFragment : BaseFlowFragment() {
-    override fun setParentHost(): Int {
-        return R.id.nav_host
+class MainFlowFragment : BaseFragment() {
+    override fun setHost(): Int {
+        return R.id.flow_host_main
     }
 
-    override fun setChildHost(): Int {
-        return R.id.flow_host_main
+    override fun setFlowHost(): Int {
+        return R.id.nav_host
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,11 +25,11 @@ class MainFlowFragment : BaseFlowFragment() {
             if (it.itemId != v.bottomNavigationView.selectedItemId) {
                 when (it.itemId) {
                     R.id.profile -> {
-                        childNavController.navigate(R.id.profileFragment)
+                        navController.navigate(R.id.profileFragment)
                         return@setOnNavigationItemSelectedListener true
                     }
                     R.id.settings -> {
-                        childNavController.navigate(R.id.settingsFragment)
+                        navController.navigate(R.id.settingsFragment)
                         return@setOnNavigationItemSelectedListener true
                     }
                 }
