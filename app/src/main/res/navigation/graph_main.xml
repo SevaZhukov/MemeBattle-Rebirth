@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/graph_main"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/newsFragment">
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.memebattle.memebattle.features.main.fragment.profile.ProfileFragment"
@@ -10,4 +10,12 @@
         android:id="@+id/settingsFragment"
         android:name="com.memebattle.memebattle.features.main.fragment.settings.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.memebattle.memebattle.features.main.fragment.game.GameFragment"
+        android:label="GameFragment" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.memebattle.memebattle.features.main.fragment.news.NewsFragment"
+        android:label="NewsFragment" />
 </navigation>
