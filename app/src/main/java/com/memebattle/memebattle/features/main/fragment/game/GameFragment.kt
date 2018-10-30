@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.memebattle.memebattle.R
 import com.memebattle.memebattle.core.presentation.BaseFragment
+import kotlinx.android.synthetic.main.fragment_game.view.*
 
 class GameFragment : BaseFragment() {
     override fun setHost(): Int {
@@ -20,6 +21,9 @@ class GameFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_game, container, false)
+        v.gameButton.setOnClickListener {
+            navController.navigate(R.id.gameFragment)
+        }
         return v
     }
 }

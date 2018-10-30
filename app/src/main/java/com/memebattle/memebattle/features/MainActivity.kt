@@ -16,11 +16,4 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         navController = Navigation.findNavController(this, R.id.nav_host)
     }
-
-    override fun onBackPressed() {
-        val fragment = navController.currentDestination
-        if ((fragment as? IOnBackPressed)?.onBackPressed()!!.not()) {
-            super.onBackPressed()
-        }
-    }
 }
