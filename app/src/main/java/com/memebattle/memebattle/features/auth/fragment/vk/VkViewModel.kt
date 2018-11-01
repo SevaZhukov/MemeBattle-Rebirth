@@ -24,7 +24,7 @@ class VkViewModel : ViewModel() {
     lateinit var settingsService: AuthSettingsService
 
     init {
-        App.instance.authComponent!!.inject(this)
+        App.instance.daggerComponentHelper.authComponent!!.inject(this)
     }
 
     fun vkAuth(code: String) {

@@ -26,13 +26,11 @@ class AuthFlowFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG, "oncreate flow")
-        App.instance.plusAuthComponent()
+        App.instance.daggerComponentHelper.plusAuthComponent()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(TAG, "ondestroy flow")
-        App.instance.removeAuthComponent()
+        App.instance.daggerComponentHelper.removeAuthComponent()
     }
 }

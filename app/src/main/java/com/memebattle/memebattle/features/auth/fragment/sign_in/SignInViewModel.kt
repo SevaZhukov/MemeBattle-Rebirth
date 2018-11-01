@@ -24,7 +24,7 @@ class SignInViewModel : ViewModel() {
     lateinit var settingsService: AuthSettingsService
 
     init {
-        App.instance.authComponent!!.inject(this)
+        App.instance.daggerComponentHelper.authComponent!!.inject(this)
     }
 
     fun signIn(name: String) {

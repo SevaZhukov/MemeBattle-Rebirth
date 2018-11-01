@@ -1,6 +1,7 @@
 package com.memebattle.memebattle.features.auth.fragment.vk
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -25,17 +26,21 @@ class VkFragment : BaseFragment() {
         return R.id.nav_host
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.webview_vk, container, false)
+
         viewModel = ViewModelProviders.of(this).get(VkViewModel::class.java)
         viewModel.user.observe(this, Observer {
             Log.i(TAG, "user observe $it")
             flowNavController.navigate(R.id.action_vkFragment_to_mainFlowFragment2)
         })
+
         v.webView.settings.javaScriptEnabled = true
         v.webView.webViewClient = VkWebViewClient(vkCodeCallback())
         v.webView.loadUrl(resources.getString(R.string.vk_auth_url))
+
         return v
     }
 
