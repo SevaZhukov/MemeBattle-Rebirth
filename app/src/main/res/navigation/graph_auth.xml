@@ -34,5 +34,9 @@
     <fragment
         android:id="@+id/vkFragment"
         android:name="com.memebattle.memebattle.features.auth.fragment.vk.VkFragment"
-        android:label="VkFragment" />
+        android:label="VkFragment" >
+        <action
+            android:id="@+id/action_vkFragment_to_mainFlowFragment2"
+            app:destination="@id/mainFlowFragment2" />
+    </fragment>
 </navigation>

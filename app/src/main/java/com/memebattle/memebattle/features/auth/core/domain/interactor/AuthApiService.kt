@@ -10,8 +10,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AuthApiService(var api: ApiAuth) {
-    fun signIn(name: String, callback: BaseCallback<UserRes>) {
-        api.signIn(UserReq(name)).enqueue(object : Callback<UserRes> {
+    fun signIn(userReq: UserReq, callback: BaseCallback<UserRes>) {
+        api.signIn(userReq).enqueue(object : Callback<UserRes> {
             override fun onResponse(call: Call<UserRes>, response: Response<UserRes>) {
                 callback.onSuccess(response.body())
             }
@@ -22,8 +22,8 @@ class AuthApiService(var api: ApiAuth) {
         })
     }
 
-    fun signUp(name: String, callback: BaseCallback<UserRes>) {
-        api.signUp(UserReq(name)).enqueue(object : Callback<UserRes> {
+    fun signUp(userReq: UserReq, callback: BaseCallback<UserRes>) {
+        api.signUp(userReq).enqueue(object : Callback<UserRes> {
             override fun onFailure(call: Call<UserRes>, t: Throwable) {
                 callback.onError(t)
             }
@@ -35,8 +35,8 @@ class AuthApiService(var api: ApiAuth) {
         })
     }
 
-    fun authVk(code: String, callback: BaseCallback<UserRes>) {
-        api.vkAuth(VkCode(code)).enqueue(object : Callback<UserRes> {
+    fun vkAuth(vkCode: VkCode, callback: BaseCallback<UserRes>) {
+        api.vkAuth(vkCode).enqueue(object : Callback<UserRes> {
             override fun onFailure(call: Call<UserRes>, t: Throwable) {
                 callback.onError(t)
             }

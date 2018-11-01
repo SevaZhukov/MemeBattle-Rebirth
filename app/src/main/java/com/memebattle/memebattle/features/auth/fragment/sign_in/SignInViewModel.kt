@@ -7,6 +7,7 @@ import com.memebattle.memebattle.App
 import com.memebattle.memebattle.core.domain.BaseCallback
 import com.memebattle.memebattle.features.auth.core.domain.model.res.UserRes
 import com.memebattle.memebattle.features.auth.core.domain.interactor.AuthApiService
+import com.memebattle.memebattle.features.auth.core.domain.model.req.UserReq
 import com.memebattle.newlegalclinic.feature.auth.core.domain.AuthSettingsService
 import javax.inject.Inject
 
@@ -27,7 +28,8 @@ class SignInViewModel : ViewModel() {
     }
 
     fun signIn(name: String) {
-        apiService.signIn(name, object : BaseCallback<UserRes> {
+        val userReq = UserReq(name)
+        apiService.signIn(userReq, object : BaseCallback<UserRes> {
             override fun onSuccess(data: UserRes?) {
                 Log.i(TAG, "success $data")
                 user.value = data
@@ -39,9 +41,5 @@ class SignInViewModel : ViewModel() {
                 user.value = UserRes("", "")
             }
         })
-    }
-
-    fun getId() {
-        Log.i(TAG, settingsService.getId())
     }
 }

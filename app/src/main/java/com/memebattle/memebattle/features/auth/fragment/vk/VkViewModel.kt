@@ -27,8 +27,9 @@ class VkViewModel : ViewModel() {
         App.instance.authComponent!!.inject(this)
     }
 
-    fun vkAuth(code: VkCode) {
-        apiService.vkAuth(name, object : BaseCallback<UserRes> {
+    fun vkAuth(code: String) {
+        val vkCode = VkCode(code)
+        apiService.vkAuth(vkCode, object : BaseCallback<UserRes> {
             override fun onSuccess(data: UserRes?) {
                 Log.i(TAG, "success $data")
                 user.value = data
@@ -37,12 +38,8 @@ class VkViewModel : ViewModel() {
 
             override fun onError(t: Throwable) {
                 Log.i(TAG, "error ${t.message}")
-                user.value = UserRes("", "")
+                error.value = "error"
             }
         })
-    }
-
-    fun getId() {
-        Log.i(TAG, settingsService.getId())
     }
 }

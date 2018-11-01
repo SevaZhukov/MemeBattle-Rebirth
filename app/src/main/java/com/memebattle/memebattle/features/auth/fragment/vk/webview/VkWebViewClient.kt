@@ -4,9 +4,8 @@ import android.graphics.Bitmap
 import android.util.Log
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.memebattle.memebattle.core.domain.BaseCallback
 
-class VkWebViewClient(val callback: BaseCallback<String>) : WebViewClient() {
+class VkWebViewClient(val callback: VkCodeCallback<String>) : WebViewClient() {
     val TAG = "code"
 
     override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
