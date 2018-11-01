@@ -22,7 +22,7 @@ class App : Application() {
         instance = this
         appComponent = DaggerAppComponent.builder()
                 .appModule(AppModule(instance))
-                .retrofitModule(RetrofitModule("https://www.brewmapp.com/api/"))
+                .retrofitModule(RetrofitModule("https://www.memebattle.com/api/"))
                 .build()
     }
 

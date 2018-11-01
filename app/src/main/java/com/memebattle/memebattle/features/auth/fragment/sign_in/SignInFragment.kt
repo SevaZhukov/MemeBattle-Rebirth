@@ -38,10 +38,12 @@ class SignInFragment : BaseFragment() {
         })
         v.gotoSignUpButton.setOnClickListener {
             navController.navigate(R.id.action_signInFragment_to_signUpFragment)
-            //viewModel.getId()
         }
         v.signInButton.setOnClickListener {
             viewModel.signIn("")
+        }
+        v.signWithVk.setOnClickListener {
+            navController.navigate(R.id.action_signInFragment_to_vkFragment)
         }
         return v
     }

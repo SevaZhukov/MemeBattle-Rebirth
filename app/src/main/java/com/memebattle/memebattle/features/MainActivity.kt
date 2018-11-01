@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.memebattle.memebattle.R
-import com.memebattle.memebattle.core.presentation.IOnBackPressed
 
 class MainActivity : AppCompatActivity() {
 

@@ -14,6 +14,9 @@
             android:id="@+id/action_signInFragment_to_mainFlowFragment2"
             app:clearTask="true"
             app:destination="@+id/mainFlowFragment2" />
+        <action
+            android:id="@+id/action_signInFragment_to_vkFragment"
+            app:destination="@id/vkFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -28,4 +31,8 @@
         android:id="@+id/mainFlowFragment2"
         android:name="com.memebattle.memebattle.features.main.MainFlowFragment"
         android:label="MainFlowFragment" />
+    <fragment
+        android:id="@+id/vkFragment"
+        android:name="com.memebattle.memebattle.features.auth.fragment.vk.VkFragment"
+        android:label="VkFragment" />
 </navigation>
