@@ -4,4 +4,8 @@
     <string name="url">"https://www.memebattle.com/api/"</string>
 
     <string name="vk_auth_url">https://vk.com/away.php?to=http%3A%2F%2Fdev.themezv.ru%3A1333%2Fauth%2Fvk%3FpartnerId%3D5bd1f957af662600141f4404&amp;cc_key=</string>
+    <string name="title_game">Игра</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_settings">Настройки</string>
+    <string name="title_rating">Рейтинг</string>
 </resources>

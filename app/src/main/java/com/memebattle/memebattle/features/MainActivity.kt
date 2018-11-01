@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.memebattle.memebattle.App
 import com.memebattle.memebattle.R
 
 class MainActivity : AppCompatActivity() {
