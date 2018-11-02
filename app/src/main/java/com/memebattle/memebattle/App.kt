@@ -13,6 +13,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        daggerComponentHelper = DaggerComponentHelper(resources.getString(R.string.url))
+        val url = resources.getString(R.string.url)
+        val socketUrl = resources.getString(R.string.socket_url)
+        daggerComponentHelper = DaggerComponentHelper(url, socketUrl)
     }
 }

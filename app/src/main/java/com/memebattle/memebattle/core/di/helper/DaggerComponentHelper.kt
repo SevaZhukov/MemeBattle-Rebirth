@@ -7,10 +7,13 @@ import com.memebattle.memebattle.core.di.sub.auth.module.AuthApiModule
 import com.memebattle.memebattle.core.di.sub.auth.module.AuthSettingsModule
 import com.memebattle.memebattle.core.di.sub.main.MainComponent
 import com.memebattle.memebattle.core.di.sub.main.module.RatingApiModule
+import com.memebattle.memebattle.core.di.sub.main.sub.game.GameComponent
+import com.memebattle.memebattle.core.di.sub.main.sub.game.module.GameApiModule
+import com.memebattle.memebattle.core.di.sub.main.sub.game.module.GameSocketModule
 import com.memebattle.newlegalclinic.core.di.core.module.AppModule
 import com.memebattle.newlegalclinic.core.di.core.module.RetrofitModule
 
-class DaggerComponentHelper(url: String) {
+class DaggerComponentHelper(url: String, private val socketUrl: String) {
 
     private val appComponent = DaggerAppComponent.builder()
             .appModule(AppModule(App.instance))
@@ -19,6 +22,7 @@ class DaggerComponentHelper(url: String) {
 
     var authComponent: AuthComponent? = null
     var mainComponent: MainComponent? = null
+    var gameComponent: GameComponent? = null
 
     fun plusAuthComponent() {
         if (authComponent == null)
@@ -41,5 +45,17 @@ class DaggerComponentHelper(url: String) {
 
     fun removeMainComponent() {
         mainComponent = null
+    }
+
+    fun plusGameComponent() {
+        if (gameComponent == null)
+            gameComponent = mainComponent!!.gameComponentBuilder()
+                    .apiModule(GameApiModule())
+                    .socketModule(GameSocketModule(socketUrl))
+                    .buid()
+    }
+
+    fun removeGameComponent() {
+        gameComponent = null
     }
 }
