@@ -12,7 +12,7 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.memebattle.memebattle.features.main.fragment.game.GameFragment"
+        android:name="com.memebattle.memebattle.features.main.fragment.game.presentation.GameFragment"
         android:label="GameFragment" />
     <fragment
         android:id="@+id/modesFragment"

@@ -8,7 +8,6 @@ import com.memebattle.memebattle.core.di.sub.auth.module.AuthSettingsModule
 import com.memebattle.memebattle.core.di.sub.main.MainComponent
 import com.memebattle.memebattle.core.di.sub.main.module.RatingApiModule
 import com.memebattle.memebattle.core.di.sub.main.sub.game.GameComponent
-import com.memebattle.memebattle.core.di.sub.main.sub.game.module.GameApiModule
 import com.memebattle.memebattle.core.di.sub.main.sub.game.module.GameSocketModule
 import com.memebattle.newlegalclinic.core.di.core.module.AppModule
 import com.memebattle.newlegalclinic.core.di.core.module.RetrofitModule

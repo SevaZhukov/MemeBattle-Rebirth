@@ -1,12 +1,15 @@
-package com.memebattle.memebattle.features.main.fragment.game
+package com.memebattle.memebattle.features.main.fragment.game.presentation
 
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.memebattle.memebattle.R
 import com.memebattle.memebattle.core.presentation.BaseFragment
+import com.memebattle.memebattle.features.main.fragment.game.domain.events.GameSendEvent
 import kotlinx.android.synthetic.main.fragment_game.view.*
 
 class GameFragment : BaseFragment() {
@@ -18,11 +21,18 @@ class GameFragment : BaseFragment() {
         return R.id.nav_host
     }
 
+    lateinit var viewModel: GameViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_game, container, false)
+        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+        viewModel.memes.observe(this, Observer {
+
+        })
         v.gameButton.setOnClickListener {
-            navController.navigate(R.id.gameFragment)
+            val map = hashMapOf(Pair("lol", "kek"))
+            viewModel.emitMessage(GameSendEvent.RESULT, map)
         }
         return v
     }
