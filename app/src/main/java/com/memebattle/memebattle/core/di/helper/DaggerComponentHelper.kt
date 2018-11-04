@@ -1,7 +1,6 @@
 package com.memebattle.memebattle.core.di.helper
 
 import com.memebattle.memebattle.App
-import com.memebattle.memebattle.core.di.core.DaggerAppComponent
 import com.memebattle.memebattle.core.di.sub.auth.AuthComponent
 import com.memebattle.memebattle.core.di.sub.auth.module.AuthApiModule
 import com.memebattle.memebattle.core.di.sub.auth.module.AuthSettingsModule
@@ -49,7 +48,6 @@ class DaggerComponentHelper(url: String, private val socketUrl: String) {
     fun plusGameComponent() {
         if (gameComponent == null)
             gameComponent = mainComponent!!.gameComponentBuilder()
-                    .apiModule(GameApiModule())
                     .socketModule(GameSocketModule(socketUrl))
                     .buid()
     }
