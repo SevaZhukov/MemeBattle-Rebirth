@@ -9,6 +9,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiProfile {
-    @POST
+    @POST("lol")
     fun getProfile(@Body profileReq: ProfileReq): Call<Profile>
 }

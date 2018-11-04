@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiRating {
-    @POST
+    @POST("lol")
     fun getRating(@Body ratingReq: RatingReq): Call<Rating>
 }

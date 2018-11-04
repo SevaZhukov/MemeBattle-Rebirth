@@ -1,6 +1,8 @@
 package com.memebattle.memebattle.core.di.sub.main.module
 
 import com.memebattle.memebattle.core.di.core.scope.FlowFragmentScope
+import com.memebattle.memebattle.features.main.fragment.profile.data.ApiProfile
+import com.memebattle.memebattle.features.main.fragment.profile.domain.interactor.ProfileApiService
 import com.memebattle.memebattle.features.main.fragment.rating.data.ApiRating
 import com.memebattle.memebattle.features.main.fragment.rating.domain.interactor.RatingApiService
 import dagger.Module
@@ -11,8 +13,8 @@ import retrofit2.Retrofit
 class ProfileApiModule {
     @FlowFragmentScope
     @Provides
-    fun provideRatingApiService(retrofit: Retrofit): RatingApiService {
-        val api = retrofit.create(ApiRating::class.java)
-        return RatingApiService(api)
+    fun provideRatingApiService(retrofit: Retrofit): ProfileApiService {
+        val api = retrofit.create(ApiProfile::class.java)
+        return ProfileApiService(api)
     }
 }

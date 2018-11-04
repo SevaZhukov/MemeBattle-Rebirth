@@ -1,13 +1,14 @@
 package com.memebattle.memebattle.core.di.sub.main
 
 import com.memebattle.memebattle.core.di.core.scope.FlowFragmentScope
+import com.memebattle.memebattle.core.di.sub.main.module.ProfileApiModule
 import com.memebattle.memebattle.core.di.sub.main.module.RatingApiModule
 import com.memebattle.memebattle.core.di.sub.main.sub.game.GameComponent
 import com.memebattle.memebattle.features.main.fragment.profile.presentation.ProfileViewModel
 import com.memebattle.memebattle.features.main.fragment.rating.presentation.RatingViewModel
 import dagger.Subcomponent
 
-@Subcomponent(modules = [RatingApiModule::class])
+@Subcomponent(modules = [RatingApiModule::class, ProfileApiModule::class])
 @FlowFragmentScope
 interface MainComponent {
     fun gameComponentBuilder(): GameComponent.Builder
