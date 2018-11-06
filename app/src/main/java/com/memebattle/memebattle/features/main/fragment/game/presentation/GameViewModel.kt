@@ -18,14 +18,19 @@ class GameViewModel : ViewModel() {
     var memes = MutableLiveData<Memes>()
     var result = MutableLiveData<Result>()
 
+    var message = MutableLiveData<JSONObject>()
+
     @Inject
     lateinit var socketService: GameSocketService
 
     init {
         App.instance.daggerComponentHelper.gameComponent!!.inject(this)
 
-        socketService.setOnMemes(memes)
-        socketService.setOnResult(result)
+        /*socketService.setOnMemes(memes)
+        socketService.setOnResult(result)*/
+
+        socketService.setOnEvent(GameEvent.MEME, message)
+
         socketService.connect()
     }
 

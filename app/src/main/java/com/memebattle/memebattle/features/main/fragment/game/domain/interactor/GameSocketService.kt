@@ -15,6 +15,12 @@ class GameSocketService(private val socket: Socket) {
         socket.connect()
     }
 
+    fun setOnEvent(event: GameEvent, liveData: MutableLiveData<JSONObject>) {
+        socket.on(event.name) {
+            liveData.value = it[0] as JSONObject
+        }
+    }
+
     fun setOnMemes(memes: MutableLiveData<Memes>) {
         socket.on(GameEvent.MEME.name) {
             val obj = it[0] as JSONObject
