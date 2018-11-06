@@ -5,6 +5,7 @@ import com.memebattle.memebattle.core.di.sub.main.module.ProfileApiModule
 import com.memebattle.memebattle.core.di.sub.main.module.RatingApiModule
 import com.memebattle.memebattle.core.di.sub.main.sub.game.GameComponent
 import com.memebattle.memebattle.features.main.fragment.profile.presentation.ProfileViewModel
+import com.memebattle.memebattle.features.main.fragment.rating.data.RatingPositionalDataSource
 import com.memebattle.memebattle.features.main.fragment.rating.presentation.RatingViewModel
 import dagger.Subcomponent
 
@@ -15,6 +16,7 @@ interface MainComponent {
 
     fun inject(ratingViewModel: RatingViewModel)
     fun inject(profileViewModel: ProfileViewModel)
+    fun inject(ratingPositionalDataSource: RatingPositionalDataSource)
 
     @Subcomponent.Builder
     interface Builder {

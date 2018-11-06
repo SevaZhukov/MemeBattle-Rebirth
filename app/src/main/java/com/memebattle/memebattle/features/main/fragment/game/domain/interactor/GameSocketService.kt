@@ -2,6 +2,7 @@ package com.memebattle.memebattle.features.main.fragment.game.domain.interactor
 
 import androidx.lifecycle.MutableLiveData
 import com.github.nkzawa.socketio.client.Socket
+import com.google.gson.Gson
 import com.memebattle.memebattle.features.main.fragment.game.domain.events.GameEvent
 import com.memebattle.memebattle.features.main.fragment.game.domain.events.GameSendEvent
 import com.memebattle.memebattle.features.main.fragment.game.domain.model.Memes
@@ -23,6 +24,8 @@ class GameSocketService(private val socket: Socket) {
     fun setOnResult(result: MutableLiveData<Result>) {
         socket.on(GameEvent.MEME.name) {
             val obj = it[0] as JSONObject
+            val gson = Gson()
+            result.value = gson.fromJson(obj.toString(), Result::class.java)
         }
     }
 

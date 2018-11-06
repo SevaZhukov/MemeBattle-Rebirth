@@ -9,7 +9,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.memebattle.memebattle.R
 import com.memebattle.memebattle.core.presentation.BaseFragment
+import com.memebattle.memebattle.features.main.fragment.rating.domain.util.UserDiffUtilCallback
 import com.memebattle.memebattle.features.main.fragment.rating.presentation.RatingViewModel
+import com.memebattle.memebattle.features.main.fragment.rating.presentation.recycler.RatingAdapter
+import kotlinx.android.synthetic.main.fragment_rating.*
 
 class RatingFragment : BaseFragment() {
     override fun setHost(): Int {
@@ -26,8 +29,10 @@ class RatingFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_rating, container, false)
         viewModel = ViewModelProviders.of(this).get(RatingViewModel::class.java)
-        viewModel.users.observe(this, Observer {
-
+        viewModel.pagedList.observe(this, Observer {
+            val adapter = RatingAdapter(UserDiffUtilCallback())
+            adapter.submitList(it)
+            recyclerView.adapter = adapter
         })
         viewModel.getRating()
         return v

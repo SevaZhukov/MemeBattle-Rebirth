@@ -17,9 +17,17 @@
     <fragment
         android:id="@+id/modesFragment"
         android:name="com.memebattle.memebattle.features.main.fragment.modes.ModesFragment"
-        android:label="ModesFragment" />
+        android:label="ModesFragment" >
+        <action
+            android:id="@+id/action_modesFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ratingFragment"
         android:name="com.memebattle.memebattle.features.main.fragment.profile.RatingFragment"
-        android:label="RatingFragment" />
+        android:label="RatingFragment" >
+        <action
+            android:id="@+id/action_ratingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>
