@@ -45,12 +45,6 @@ class GameFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_game, container, false)
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
-        /*viewModel.memes.observe(this, Observer {
-
-        })
-        viewModel.result.observe(this, Observer {
-
-        })*/
         viewModel.message.observe(this, Observer {
             when (it.getString("type")) {
                 GameEvent.MEME.name -> {

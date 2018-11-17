@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.memebattle.memebattle.App
 import com.memebattle.memebattle.R
 import com.memebattle.memebattle.core.presentation.BaseFragment
 import com.memebattle.memebattle.features.main.fragment.rating.domain.util.UserDiffUtilCallback
@@ -24,6 +25,16 @@ class RatingFragment : BaseFragment() {
     }
 
     lateinit var viewModel: RatingViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        App.instance.daggerComponentHelper.plusRatingComponent()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        App.instance.daggerComponentHelper.removeRatingComponent()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

@@ -2,25 +2,22 @@ package com.memebattle.memebattle.core.di.sub.main
 
 import com.memebattle.memebattle.core.di.core.scope.FlowFragmentScope
 import com.memebattle.memebattle.core.di.sub.main.module.ProfileApiModule
-import com.memebattle.memebattle.core.di.sub.main.module.RatingApiModule
 import com.memebattle.memebattle.core.di.sub.main.sub.game.GameComponent
+import com.memebattle.memebattle.core.di.sub.main.sub.rating.RatingComponent
 import com.memebattle.memebattle.features.main.fragment.profile.presentation.ProfileViewModel
-import com.memebattle.memebattle.features.main.fragment.rating.data.RatingPositionalDataSource
-import com.memebattle.memebattle.features.main.fragment.rating.presentation.RatingViewModel
 import dagger.Subcomponent
 
-@Subcomponent(modules = [RatingApiModule::class, ProfileApiModule::class])
+@Subcomponent(modules = [ProfileApiModule::class])
 @FlowFragmentScope
 interface MainComponent {
     fun gameComponentBuilder(): GameComponent.Builder
+    fun ratingComponentBuilder(): RatingComponent.Builder
 
-    fun inject(ratingViewModel: RatingViewModel)
     fun inject(profileViewModel: ProfileViewModel)
-    fun inject(ratingPositionalDataSource: RatingPositionalDataSource)
 
     @Subcomponent.Builder
     interface Builder {
-        fun apiModule(ratingApiModule: RatingApiModule): MainComponent.Builder
+        fun apiModule(profileApiModule: ProfileApiModule): MainComponent.Builder
         fun buid(): MainComponent
     }
 }

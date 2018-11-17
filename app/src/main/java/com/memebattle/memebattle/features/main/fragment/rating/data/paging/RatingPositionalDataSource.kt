@@ -1,16 +1,17 @@
-package com.memebattle.memebattle.features.main.fragment.rating.data
+package com.memebattle.memebattle.features.main.fragment.rating.data.paging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
 import com.memebattle.memebattle.App
 import com.memebattle.memebattle.features.main.fragment.rating.domain.interactor.RatingApiService
 import com.memebattle.memebattle.features.main.fragment.rating.domain.model.res.User
+import com.memebattle.memebattle.features.main.fragment.rating.domain.repository.RatingRepository
 import javax.inject.Inject
 
 class RatingPositionalDataSource(val error: MutableLiveData<String>) : PositionalDataSource<User>() {
 
     init {
-        App.instance.daggerComponentHelper.mainComponent!!.inject(this)
+        App.instance.daggerComponentHelper.ratingComponent!!.inject(this)
     }
 
     @Inject

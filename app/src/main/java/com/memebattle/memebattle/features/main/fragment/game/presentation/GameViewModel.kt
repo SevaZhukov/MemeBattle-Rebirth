@@ -13,10 +13,6 @@ import org.json.JSONObject
 import javax.inject.Inject
 
 class GameViewModel : ViewModel() {
-    val TAG = "code"
-
-    var memes = MutableLiveData<Memes>()
-    var result = MutableLiveData<Result>()
 
     var message = MutableLiveData<JSONObject>()
 
@@ -25,12 +21,8 @@ class GameViewModel : ViewModel() {
 
     init {
         App.instance.daggerComponentHelper.gameComponent!!.inject(this)
-
-        /*socketService.setOnMemes(memes)
-        socketService.setOnResult(result)*/
-
         socketService.setOnEvent(GameEvent.MEME, message)
-
+        socketService.setOnEvent(GameEvent.RESULT, message)
         socketService.connect()
     }
 

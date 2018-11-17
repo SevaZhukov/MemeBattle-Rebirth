@@ -2,6 +2,7 @@ package com.memebattle.memebattle.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.memebattle.memebattle.App

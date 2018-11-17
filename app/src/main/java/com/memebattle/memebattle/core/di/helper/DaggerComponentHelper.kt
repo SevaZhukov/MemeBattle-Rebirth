@@ -6,9 +6,13 @@ import com.memebattle.memebattle.core.di.sub.auth.AuthComponent
 import com.memebattle.memebattle.core.di.sub.auth.module.AuthApiModule
 import com.memebattle.memebattle.core.di.sub.auth.module.AuthSettingsModule
 import com.memebattle.memebattle.core.di.sub.main.MainComponent
-import com.memebattle.memebattle.core.di.sub.main.module.RatingApiModule
+import com.memebattle.memebattle.core.di.sub.main.module.ProfileApiModule
 import com.memebattle.memebattle.core.di.sub.main.sub.game.GameComponent
 import com.memebattle.memebattle.core.di.sub.main.sub.game.module.GameSocketModule
+import com.memebattle.memebattle.core.di.sub.main.sub.rating.RatingComponent
+import com.memebattle.memebattle.core.di.sub.main.sub.rating.module.RatingApiModule
+import com.memebattle.memebattle.core.di.sub.main.sub.rating.module.RatingRepositoryModule
+import com.memebattle.memebattle.core.di.sub.main.sub.rating.module.RatingRoomModule
 import com.memebattle.newlegalclinic.core.di.core.module.AppModule
 import com.memebattle.newlegalclinic.core.di.core.module.RetrofitModule
 
@@ -22,6 +26,7 @@ class DaggerComponentHelper(url: String, private val socketUrl: String) {
     var authComponent: AuthComponent? = null
     var mainComponent: MainComponent? = null
     var gameComponent: GameComponent? = null
+    var ratingComponent: RatingComponent? = null
 
     fun plusAuthComponent() {
         if (authComponent == null)
@@ -38,7 +43,7 @@ class DaggerComponentHelper(url: String, private val socketUrl: String) {
     fun plusMainComponent() {
         if (mainComponent == null)
             mainComponent = appComponent.mainComponentBuilder()
-                    .apiModule(RatingApiModule())
+                    .apiModule(ProfileApiModule())
                     .buid()
     }
 
@@ -54,6 +59,19 @@ class DaggerComponentHelper(url: String, private val socketUrl: String) {
     }
 
     fun removeGameComponent() {
+        gameComponent = null
+    }
+
+    fun plusRatingComponent() {
+        if (ratingComponent == null)
+            ratingComponent = mainComponent!!.ratingComponentBuilder()
+                    .apiModule(RatingApiModule())
+                    .roomModule(RatingRoomModule())
+                    .repositoryModule(RatingRepositoryModule())
+                    .buid()
+    }
+
+    fun removeRatingComponent() {
         gameComponent = null
     }
 }

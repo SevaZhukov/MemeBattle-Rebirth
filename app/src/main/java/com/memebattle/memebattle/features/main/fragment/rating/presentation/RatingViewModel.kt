@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.memebattle.memebattle.core.domain.MainThreadExecutor
-import com.memebattle.memebattle.features.main.fragment.rating.data.RatingPositionalDataSource
+import com.memebattle.memebattle.features.main.fragment.rating.data.paging.RatingPositionalDataSource
 import com.memebattle.memebattle.features.main.fragment.rating.domain.model.res.User
 import java.util.concurrent.Executors
 

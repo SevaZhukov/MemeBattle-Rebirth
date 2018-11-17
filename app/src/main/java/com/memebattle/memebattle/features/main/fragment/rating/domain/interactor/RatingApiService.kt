@@ -2,7 +2,7 @@ package com.memebattle.memebattle.features.main.fragment.rating.domain.interacto
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PositionalDataSource
-import com.memebattle.memebattle.features.main.fragment.rating.data.ApiRating
+import com.memebattle.memebattle.features.main.fragment.rating.data.api.ApiRating
 import com.memebattle.memebattle.features.main.fragment.rating.domain.model.res.Rating
 import com.memebattle.memebattle.features.main.fragment.rating.domain.model.res.User
 import retrofit2.Call

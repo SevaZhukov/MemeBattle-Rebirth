@@ -21,20 +21,6 @@ class GameSocketService(private val socket: Socket) {
         }
     }
 
-    fun setOnMemes(memes: MutableLiveData<Memes>) {
-        socket.on(GameEvent.MEME.name) {
-            val obj = it[0] as JSONObject
-        }
-    }
-
-    fun setOnResult(result: MutableLiveData<Result>) {
-        socket.on(GameEvent.MEME.name) {
-            val obj = it[0] as JSONObject
-            val gson = Gson()
-            result.value = gson.fromJson(obj.toString(), Result::class.java)
-        }
-    }
-
     fun emit(event: GameSendEvent, map: HashMap<String, String>) {
         socket.emit(event.name, makeMessage(map))
     }
